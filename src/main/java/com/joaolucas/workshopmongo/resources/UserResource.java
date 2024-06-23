@@ -63,7 +63,7 @@ public class UserResource {
 		obj.setId(id);
 		obj = service.update(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
-		return ResponseEntity.noContent().build();
+		return ResponseEntity.created(uri).build();
 	}
 
 	@GetMapping(value = "/{id}/posts")
